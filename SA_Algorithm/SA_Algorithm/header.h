@@ -1,10 +1,12 @@
 #pragma once
 
 #include <iostream>
-#include <string>
 #include <vector>
-#include <list>
 
-#include <algorithm>
+#define E 2.718281
+#define NF NodeFactory
+#define DEL NodeFactory::SafeDelet
+#define NIns NodeManager::GetInstance()
+#define SA SimulatedAnnealing::GetInstance()
 
 using namespace std;

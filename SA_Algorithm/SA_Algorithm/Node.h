@@ -4,25 +4,31 @@
 class Node
 {
 private:
-	int Num = 0;	//후보해: x
-	int Fit = 0;		//적랍도: f(x)
-	vector<int> Binary;	//이진법
+	int Num;
+	int Fit;
+	vector<int> Binary;
 
-public:
-	//숫자로 초기화
+public:	//Set
 	void SetNum(int _num);
-	int GetNum() { return Num; }
-
-	//이진수로 초기화
 	void SetBinary(vector<int> _Binary);
+
+public: //Get
+	int GetNum() { return Num; }
+	int* pGetNum() { return &Num; }
 	vector<int> GetBinary() { return Binary; };
-
+	vector<int>* pGetBinary() { return &Binary; };
 	int GetFit() { return Fit; }
+	int* pGetFit() { return &Fit; }
 
-	void show();
+public:	//ect
+	void Show();
 
-private:
-	//함수
+public:	//init
+	Node() {};
+	Node(int _num) { SetNum(_num); }
+	Node(vector<int> _binary) { SetBinary(_binary); }
+
+private: //function
 	int f(int x) { return (80 + (38 * x) - (x * x)); }
 };
 

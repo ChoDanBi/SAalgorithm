@@ -1,5 +1,4 @@
 #include "Node.h"
-#include "NodeManager.h"
 
 void Node::SetNum(int _num)
 {
@@ -22,12 +21,14 @@ void Node::SetBinary(vector<int> _Binary)
 	Binary = _Binary;
 }
 
-void Node::show()
+void Node::Show()
 {
-	cout << "후보해: " << Num
-		<< " 적합도: " << Fit
-		<< " 이진법: ";
-	for (int i = (Binary.size() - 1); i >= 0; ++i) cout << Binary[i];
-	cout << endl;
+	cout << "Num: " << Num
+		<< ", Fit: " << Fit
+		<< ", Binary: ";
+	for (int i = (Binary.size() - 1); i >= 0; --i)
+		cout << Binary[i];
+
+	cout << "\n";
 }
 
