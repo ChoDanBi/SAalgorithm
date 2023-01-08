@@ -26,6 +26,7 @@ public:	//Init
 
 public:	//SA
 	void Start();
+	void Finish() { cout << "FinalNum: "; NM->ShowCurNode(); }
 	void Simulating();
 
 public:	//functions
@@ -36,7 +37,6 @@ public:	//functions
 
 	bool ChkAbletoChange(Node* _node, const int& _dis, const int& _per, int* _i, int* _size);
 
-	void Final() { cout << "FinalNum: "; NIns->ShowCurNode(); }
 
 public:	//get
 	double GetAccept() { return AcceptanceProbabilty; }

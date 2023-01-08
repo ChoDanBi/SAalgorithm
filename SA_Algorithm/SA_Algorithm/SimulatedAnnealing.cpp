@@ -1,7 +1,7 @@
 #include "SimulatedAnnealing.h"
 #include "NodeFactory.h"
 
-#define cNode NIns->GetCurNode()
+#define cNode NM->GetCurNode()
 
 SimulatedAnnealing* SimulatedAnnealing::Instance = nullptr;
 
@@ -17,7 +17,7 @@ void SimulatedAnnealing::Init(const double& _accept, const double& _temp, const 
 	AcceptanceProbabilty = _accept;
 	Temperature = _temp;
 	Difference = _diff;
-	NIns->Init(_range);
+	NM->Init(_range);
 }
 
 void SimulatedAnnealing::Init(const double& _accept, const double& _temp, const double& _diff, const int& _range, const int& _num)
@@ -25,12 +25,13 @@ void SimulatedAnnealing::Init(const double& _accept, const double& _temp, const 
 	AcceptanceProbabilty = _accept;
 	Temperature = _temp;
 	Difference = _diff;
-	NIns->Init(_range, _num);
+	NM->Init(_range, _num);
 }
 
 void SimulatedAnnealing::Start()
 {
 	Simulating();
+	Finish();
 }
 
 void SimulatedAnnealing::Simulating()
@@ -41,7 +42,7 @@ void SimulatedAnnealing::Simulating()
 
 	for (int i = 0; i < size;) {
 
-		node = NF::CreateNearNode(cNode, i, NIns->GetSize());
+		node = NF::CreateNearNode(cNode, i, NM->GetSize());
 		dis = GetDistance(cNode->pGetFit(), node->pGetFit());
 		per = GetPercent(dis);
 
@@ -52,7 +53,7 @@ void SimulatedAnnealing::Simulating()
 		DEL(node);
 
 		//Bad Fit
-		node = NF::CreateRandomNode(NIns->GetRange(), NIns->GetSize());
+		node = NF::CreateRandomNode(NM->GetRange(), NM->GetSize());
 		dis = GetDistance(cNode->pGetFit(), node->pGetFit());
 		per = GetPercent(dis);
 
@@ -62,7 +63,6 @@ void SimulatedAnnealing::Simulating()
 		//nothing - go next
 		DEL(node); ++i;
 	}
-	Final();
 }
 
 
@@ -70,7 +70,7 @@ bool SimulatedAnnealing::ChkAbletoChange(Node* _node, const int& _dis, const int
 {
 	if ((_dis > 0) || (_per < AcceptanceProbabilty)) {
 		if (_per < AcceptanceProbabilty) Temperature /= Difference;
-		NIns->SetCurNode(_node);
+		NM->SetCurNode(_node);
 		*_size = cNode->GetBinary().size(); *_i = 0;
 		return true;
 	}return false;

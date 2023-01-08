@@ -5,7 +5,7 @@ class Node
 {
 private:
 	int Num;
-	int Fit;
+	int Fitness;
 	vector<int> Binary;	//¡Øreverse order
 
 public:	//Set
@@ -22,14 +22,14 @@ public: //Get
 	vector<int> GetBinary() { return Binary; };
 	vector<int>* pGetBinary() { return &Binary; };
 
-	int GetFit() { return Fit; }
-	int* pGetFit() { return &Fit; }
+	int GetFit() { return Fitness; }
+	int* pGetFit() { return &Fitness; }
 
 public:	//ect
 	void Show();
 
 public:	//init
-	Node() : Num(0), Fit(0), Binary(NULL) {};
+	Node() : Num(0), Fitness(0), Binary(NULL) {};
 
 	Node(int _num) { SetNum(_num); }
 	Node(int _num, int _size) { SetNum(_num, _size); }
