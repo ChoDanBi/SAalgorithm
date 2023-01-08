@@ -4,21 +4,33 @@ void Node::SetNum(int _num)
 {
 	Num = _num;
 	Fit = f(Num);
-	do {
-		Binary.push_back(_num % 2);
-		_num /= 2;
-	} while (_num != 0);
+	do { Binary.push_back(_num % 2); _num /= 2; } while (_num != 0);
 }
 
-void Node::SetBinary(vector<int> _Binary)
+void Node::SetNum(int _num, int _len)
+{
+	Num = _num;
+	Fit = f(Num);
+	for (int i = 0; i < _len; ++i) { Binary.push_back(_num % 2); _num /= 2; }
+}
+
+void Node::SetBinary(vector<int> _binary, int _size)
 {
 	Num = 0;
-	int size = _Binary.size();
-	for (int i = 0; i < size; ++i)
-		Num += _Binary[i] * (int)pow(2, i);
-
+	for (int i = 0; i < _binary.size(); ++i) Num += (_binary[i] * (int)pow(2, i));
 	Fit = f(Num);
-	Binary = _Binary;
+	for (int i = 0; i < _size; ++i)
+		Binary.push_back(_binary.size() > i ? _binary[i] : 0);
+}
+
+void Node::SetBinary(vector<int> _binary)
+{
+	Num = 0;
+	int size = _binary.size();
+	for (int i = 0; i < size; ++i)
+		Num += _binary[i] * (int)pow(2, i);
+	Fit = f(Num);
+	Binary = _binary;
 }
 
 void Node::Show()

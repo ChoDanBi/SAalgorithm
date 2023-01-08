@@ -11,7 +11,8 @@ int main(void) {
 	start = clock();
 	//==========================
 
-	SA->Start(0.5, 0.5, 0.1, 32);
+	SA->Init(0.5, 0.5, 0.1, 63);
+	SA->Start();
 
 	//==========================
 	finish = clock(); duration(start, finish); return 0;

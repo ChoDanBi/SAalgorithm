@@ -17,17 +17,21 @@ public:
 
 private:
 	int Range;
+	int Size;
 	Node* currentNode;
 
 public:	//Init
 	void Init(const int& _range);
 	void Init(const int& _range, const int& _num);
 
-public:	//Range - Get&Set
+public:	//Get&Set
 	void SetRange(int _range) { Range = _range; }
 	int GetRange() { return Range; }
 
-public:	//Node - Get&Set
+	void SetSize() { Size = 1; while (Range > pow(2, Size)) ++Size; }
+	int GetSize() { return Size; }
+
+public:	//Node
 	void SetCurNode(Node* _node);
 	Node* GetCurNode() { return currentNode; }
 
@@ -48,7 +52,7 @@ public:	//Release
 
 
 private:
-	NodeManager() : Range(1), currentNode(nullptr) {};
+	NodeManager() : Range(1), Size(1), currentNode(nullptr) {};
 public:
 	~NodeManager() {};
 };

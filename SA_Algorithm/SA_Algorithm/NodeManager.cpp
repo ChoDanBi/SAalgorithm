@@ -6,14 +6,16 @@ NodeManager* NodeManager::Instance = NULL;
 void NodeManager::Init(const int& _range)
 {
 	Range = _range;
-	currentNode = NF::CreateNode(NF::GetRand(_range));
+	SetSize();
+	currentNode = NF::CreateNode(NF::GetRand(_range), Size);
 	cout << "Start - "; ShowCurNode();
 }
 
 void NodeManager::Init(const int& _range, const int& _num)
 {
 	Range = _range;
-	currentNode = NF::CreateNode(_num);
+	SetSize();
+	currentNode = NF::CreateNode(_num, Size);
 	cout << "Start - "; ShowCurNode();
 }
 

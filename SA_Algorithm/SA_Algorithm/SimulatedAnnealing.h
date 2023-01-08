@@ -20,11 +20,12 @@ private:
 	double Difference;
 
 public:	//Init
-	void Start(const double& _accept, const double& _temp, const double& _diff);
-	void Start(const double& _accept, const double& _temp, const double& _diff, const int& _range);
-	void Start(const double& _accept, const double& _temp, const double& _diff, const int& _range, const int& _num);
+	void Init(const double& _accept, const double& _temp, const double& _diff);
+	void Init(const double& _accept, const double& _temp, const double& _diff, const int& _range);
+	void Init(const double& _accept, const double& _temp, const double& _diff, const int& _range, const int& _num);
 
 public:	//SA
+	void Start();
 	void Simulating();
 
 public:	//functions
