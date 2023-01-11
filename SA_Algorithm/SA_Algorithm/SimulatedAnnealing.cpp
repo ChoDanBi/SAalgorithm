@@ -50,15 +50,16 @@ void SimulatedAnnealing::Simulating()
 		if (ChkAbletoChange(node, dis, per, &i, &size))
 			continue;
 
+		/*	//Bad Fit
 		DEL(node);
 
-		//Bad Fit
 		node = NF::CreateRandomNode(NM->GetRange(), NM->GetSize());
 		dis = GetDistance(cNode->pGetFit(), node->pGetFit());
 		per = GetPercent(dis);
 
 		if (ChkAbletoChange(node, dis, per, &i, &size))
 			continue;
+		*/
 
 		//nothing - go next
 		DEL(node); ++i;

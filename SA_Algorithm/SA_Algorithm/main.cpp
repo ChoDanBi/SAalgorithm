@@ -5,7 +5,7 @@
 void duration(const clock_t& start, const clock_t& finish);
 
 int main(void) {
-	cout << "*****TA Algorithm*****\n";
+	cout << "*****SA Algorithm*****\n";
 
 	clock_t start, finish;
 	start = clock();
