@@ -139,6 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Edge.cpp" />
+    <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="NodeFactory.cpp" />
@@ -146,7 +148,10 @@
     <ClCompile Include="SimulatedAnnealing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Edge.h" />
+    <ClInclude Include="FileManager.h" />
     <ClInclude Include="header.h" />
+    <ClInclude Include="Macro.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeFactory.h" />
     <ClInclude Include="NodeManager.h" />

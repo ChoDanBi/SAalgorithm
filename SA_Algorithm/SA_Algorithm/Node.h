@@ -3,10 +3,10 @@
 
 class Node
 {
-private:
+protected:
 	int Num;
-	int Fitness;
 	vector<int> Binary;	//¡Øreverse order
+	int Fitness;
 
 public:	//Set
 	void SetNum(int _num);
@@ -37,7 +37,7 @@ public:	//init
 	Node(vector<int> _binary) { SetBinary(_binary); }
 	Node(vector<int> _binary, int _size) { SetBinary(_binary, _size); }
 
-private: //function
-	int f(int x) { return (80 + (38 * x) - (x * x)); }
+public: //function
+	virtual int func(int x) { return (80 + (38 * x) - (x * x)); }
 };
 

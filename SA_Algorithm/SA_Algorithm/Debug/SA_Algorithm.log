@@ -1,3 +1,8 @@
-﻿  SimulatedAnnealing.cpp
+﻿  main.cpp
+  Node.cpp
+C:\Users\jangkw\source\repos\ChoDanBi\SAalgorithm\SA_Algorithm\SA_Algorithm\Node.cpp(32,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\jangkw\source\repos\ChoDanBi\SAalgorithm\SA_Algorithm\SA_Algorithm\Node.cpp(36,35): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+  SimulatedAnnealing.cpp
 C:\Users\jangkw\source\repos\ChoDanBi\SAalgorithm\SA_Algorithm\SA_Algorithm\SimulatedAnnealing.cpp(50,34): warning C4244: '인수': 'double'에서 'const int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
   SA_Algorithm.vcxproj -> C:\Users\jangkw\Source\Repos\ChoDanBi\SAalgorithm\SA_Algorithm\Debug\SA_Algorithm.exe
