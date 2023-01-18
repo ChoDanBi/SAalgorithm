@@ -39,26 +39,4 @@ Node* NodeFactory::CreateRandomNode(const int& _max, const int& _size)
 	return CreateNode(num, _size);
 }
 
-void NodeFactory::SafeDelet(Node* _node)
-{
-	if (_node == nullptr) return;
-	delete _node; _node = nullptr;
-}
-
-int NodeFactory::GetRand(int _max)
-{
-	random_device rd;
-	mt19937 gen(rd());
-	uniform_int_distribution<int> dis(0, _max);
-	return dis(gen);
-}
-
-int NodeFactory::GetRand(int _min, int _max)
-{
-	random_device rd;
-	mt19937 gen(rd());
-	uniform_int_distribution<int> dis(_min, _max);
-	return dis(gen);
-}
-
 

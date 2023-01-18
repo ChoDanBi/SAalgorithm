@@ -1,6 +1,5 @@
 #include "header.h"
 #include "SimulatedAnnealing.h"
-#include "FileManager.h"
 #include <time.h>
 
 void duration(const clock_t& start, const clock_t& finish);
@@ -12,8 +11,8 @@ int main(void) {
 	start = clock();
 	//==========================
 
-	//SA->Init(0.5, 0.5, 0.1, 63);
-	//SA->Start();
+	SA->Init(0.5, 0.5, 0.1, 31, 2, 1);
+	SA->Start();
 
 	//==========================
 	finish = clock(); duration(start, finish); return 0;

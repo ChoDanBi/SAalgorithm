@@ -20,12 +20,5 @@ public:	//Create Near Node
 public:	//Create Random Node
 	static Node* CreateRandomNode(const int& _max);
 	static Node* CreateRandomNode(const int& _max, const int& _size);
-
-public:	//Release Node
-	static void SafeDelet(Node* _node);
-
-public:	//Get Random Num
-	static int GetRand(int _max);
-	static int GetRand(int _min, int _max);
 };
 

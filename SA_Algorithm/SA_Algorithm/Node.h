@@ -6,7 +6,9 @@ class Node
 protected:
 	int Num;
 	vector<int> Binary;	//¡Øreverse order
-	int Fitness;
+	vector<V2> Vec;
+	//Repeater count, Hop
+	pair<int, int> Fitness;
 
 public:	//Set
 	void SetNum(int _num);
@@ -22,14 +24,14 @@ public: //Get
 	vector<int> GetBinary() { return Binary; };
 	vector<int>* pGetBinary() { return &Binary; };
 
-	int GetFit() { return Fitness; }
-	int* pGetFit() { return &Fitness; }
+	int GetFit() { return Fitness.first; }
+	int* pGetFit() { return &Fitness.first; }
 
 public:	//ect
 	void Show();
 
 public:	//init
-	Node() : Num(0), Fitness(0), Binary(NULL) {};
+	Node() : Num(0), Fitness(), Binary(NULL) {};
 
 	Node(int _num) { SetNum(_num); }
 	Node(int _num, int _size) { SetNum(_num, _size); }
@@ -37,7 +39,7 @@ public:	//init
 	Node(vector<int> _binary) { SetBinary(_binary); }
 	Node(vector<int> _binary, int _size) { SetBinary(_binary, _size); }
 
-public: //function
-	virtual int func(int x) { return (80 + (38 * x) - (x * x)); }
+private: //function
+	int func(int x) { return (80 + (38 * x) - (x * x)); }
 };
 

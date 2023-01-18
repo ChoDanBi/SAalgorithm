@@ -25,12 +25,6 @@
     <Filter Include="소스 파일\SimulatedAnnealing">
       <UniqueIdentifier>{cd46c196-f28b-4365-ac61-a0e0e7f2b38a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\FileManager">
-      <UniqueIdentifier>{6c4e0f6d-c391-4223-a0a2-4b205f06de98}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Node\Edge">
-      <UniqueIdentifier>{f95882f3-e371-42fb-99c7-dfe2a58d1e1c}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -47,12 +41,6 @@
     </ClCompile>
     <ClCompile Include="SimulatedAnnealing.cpp">
       <Filter>소스 파일\SimulatedAnnealing</Filter>
-    </ClCompile>
-    <ClCompile Include="FileManager.cpp">
-      <Filter>소스 파일\FileManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Edge.cpp">
-      <Filter>소스 파일\Node\Edge</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -71,14 +59,8 @@
     <ClInclude Include="SimulatedAnnealing.h">
       <Filter>소스 파일\SimulatedAnnealing</Filter>
     </ClInclude>
-    <ClInclude Include="FileManager.h">
-      <Filter>소스 파일\FileManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Macro.h">
+    <ClInclude Include="Define.h">
       <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Edge.h">
-      <Filter>소스 파일\Node\Edge</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

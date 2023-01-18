@@ -18,18 +18,28 @@ public:
 private:
 	int Range;
 	int Size;
+
+	int Send;
+	int Detect;
+
 	Node* currentNode;
 
 public:	//Init
-	void Init(const int& _range);
-	void Init(const int& _range, const int& _num);
+	void Init(const int& _range, const int& _send, const int& _detect);
+	void Init(const int& _range, const int& _send, const int& _detect, const int& _num);
 
 public:	//Get&Set
 	void SetRange(int _range) { Range = _range; }
 	int GetRange() { return Range; }
 
-	void SetSize() { Size = 1; while (Range > pow(2, Size)) ++Size; }
+	void SetSize() { Size = 1; int p = 2; while (Range > p) { ++Size; p *= 2; } }
 	int GetSize() { return Size; }
+
+	void SetSend(int _send) { Send = _send; }
+	int GetSend() { return Send; }
+
+	void SetDetect(int _detect) { Detect = _detect; }
+	int GetDetect() { return Detect; }
 
 public:	//Node
 	void SetCurNode(Node* _node);
@@ -48,12 +58,12 @@ public:	//Ect
 	void ShowCurNode();
 
 public:	//Release
+	void DelCurNode() { SafeDelet(currentNode); }
 	void Release();
 
-
 private:
-	NodeManager() : Range(1), Size(1), currentNode(nullptr) {};
+	NodeManager() : Range(0), Size(0), Send(0), Detect(0), currentNode(nullptr) {};
 public:
-	~NodeManager() {};
+	~NodeManager() { Release(); }
 };
 
