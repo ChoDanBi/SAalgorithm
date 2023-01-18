@@ -4,6 +4,8 @@
 class NodeFactory
 {
 public:	//Create Node
+	static Node* CreateNode() { return new Node; }
+
 	static Node* CreateNode(const int& _num) { return new Node(_num); }
 	static Node* CreateNode(const int& _num, const int& _size) { return new Node(_num, _size); }
 

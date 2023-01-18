@@ -18,10 +18,8 @@ private:
 	double AcceptanceProbabilty;
 	double Temperature;
 	double Difference;
-	vector<vector<int>> Board;
 
 public:	//Init
-	void Init(const double& _accept, const double& _temp, const double& _diff);
 	void Init(const double& _accept, const double& _temp, const double& _diff, const int& _range, const int& _send, const int& _detect);
 	void Init(const double& _accept, const double& _temp, const double& _diff, const int& _range, const int& _send, const int& _detect, const int& _num);
 
@@ -38,25 +36,21 @@ public:	//functions
 
 	bool ChkAbletoChange(Node* _node, const int& _dis, const int& _per, int* _i, int* _size);
 
-public:	//file
-	void WriteFile(int _cnt);
-	void ReadFile();
-
 public:	//get
 	double GetAccept() { return AcceptanceProbabilty; }
 	double GetTemp() { return Temperature; }
 	double GetDiff() { return Difference; }
 
 public: //set
-	double SetAccept(int _accept) { AcceptanceProbabilty = _accept; }
-	double SetTemp(int _temp) { Temperature = _temp; }
-	double SetDiff(int _diff) { Difference = _diff; }
+	void SetAccept(int _accept) { AcceptanceProbabilty = _accept; }
+	void SetTemp(int _temp) { Temperature = _temp; }
+	void SetDiff(int _diff) { Difference = _diff; }
 
 public:	//Release
 	void Release() { NM->~NodeManager(); DEL(Instance); }
 
 private:
-	SimulatedAnnealing(): AcceptanceProbabilty(0.0), Temperature(0.0), Difference(0.0), Board(NULL) {};
+	SimulatedAnnealing(): AcceptanceProbabilty(0.0), Temperature(0.0), Difference(0.0) {};
 public:
 	~SimulatedAnnealing() { Release(); }
 };

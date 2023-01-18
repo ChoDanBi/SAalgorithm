@@ -22,6 +22,10 @@ private:
 	int Send;
 	int Detect;
 
+	vector<vector<int>> Board;
+	map<int, Vector2> Sensor;
+	Vector2 Base[2];
+
 	Node* currentNode;
 
 public:	//Init
@@ -41,9 +45,18 @@ public:	//Get&Set
 	void SetDetect(int _detect) { Detect = _detect; }
 	int GetDetect() { return Detect; }
 
+	vector<vector<int>>* GetBoard() { return &Board; }
+	void SetBorad();
+
+	map<int, Vector2>* GetSensor() { return &Sensor; }
+
+	Vector2* GetBase0() { return &Base[0]; }
+	Vector2* GetBase1() { return &Base[1]; }
+
 public:	//Node
 	void SetCurNode(Node* _node);
 	Node* GetCurNode() { return currentNode; }
+
 
 	int GetCurNum() { return currentNode->GetNum(); }
 	int* pGetCurNum() { return currentNode->pGetNum(); }
@@ -56,6 +69,7 @@ public:	//Node
 
 public:	//Ect
 	void ShowCurNode();
+	void ShowBoard();
 
 public:	//Release
 	void DelCurNode() { SafeDelet(currentNode); }

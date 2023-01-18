@@ -25,6 +25,12 @@
     <Filter Include="소스 파일\SimulatedAnnealing">
       <UniqueIdentifier>{cd46c196-f28b-4365-ac61-a0e0e7f2b38a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\NodeFactory\SensorFile">
+      <UniqueIdentifier>{242c92e0-6ace-4326-90c2-5c5662d7c2be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Node\NodeFunction">
+      <UniqueIdentifier>{7e13f528-0e80-4e06-acaa-26d8a99fc20c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -41,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="SimulatedAnnealing.cpp">
       <Filter>소스 파일\SimulatedAnnealing</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeFunction.cpp">
+      <Filter>소스 파일\Node\NodeFunction</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +70,12 @@
     </ClInclude>
     <ClInclude Include="Define.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SensorFile.h">
+      <Filter>소스 파일\NodeFactory\SensorFile</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeFunction.h">
+      <Filter>소스 파일\Node\NodeFunction</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,16 +3,20 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <fstream>
 #include <random>
+#include <map>
 #include "Define.h"
 
 using namespace std;
 
-typedef struct Vector2 { int x, y; } V2;
+typedef struct Vector2
+{
+	int x, y;
+	Vector2(int _x, int _y) : x(_x), y(_y) {};
+} V2;
 
 template <typename T>
-inline void SafeDelet(T _node)
+inline void SafeDelet(T *_node)
 {
 	if (_node == nullptr) return;
 	delete _node; _node = nullptr;

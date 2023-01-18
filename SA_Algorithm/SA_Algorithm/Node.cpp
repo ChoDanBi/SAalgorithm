@@ -1,4 +1,31 @@
 #include "Node.h"
+#include "NodeFunction.h"
+
+#define FUNC NodeFunction
+
+void Node::Init()
+{
+	FUNC* f = new FUNC;
+	f->SetRelay(Relay);
+
+
+
+
+
+	delete f; f = nullptr;
+}
+
+void Node::Init(vector<pair<Vector2, int>> _relay)
+{
+	Relay = _relay;
+	FUNC* f = new FUNC(_relay);
+
+
+
+
+
+	delete f; f = nullptr;
+}
 
 void Node::SetNum(int _num)
 {

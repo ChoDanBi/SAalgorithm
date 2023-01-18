@@ -1,19 +1,7 @@
 #include "SimulatedAnnealing.h"
 #include "NodeFactory.h"
 
-#define cNode NM->GetCurNode()
-
 SimulatedAnnealing* SimulatedAnnealing::Instance = nullptr;
-
-void SimulatedAnnealing::Init(const double& _accept, const double& _temp, const double& _diff)
-{
-	AcceptanceProbabilty = _accept;
-	Temperature = _temp;
-	Difference = _diff;
-	vector<int> v(10, 0);
-	for (int i = 0; i < 10; ++i)
-		Board.push_back(v);
-}
 
 void SimulatedAnnealing::Init(const double& _accept, const double& _temp, const double& _diff, const int& _range, const int& _send, const int& _detect)
 {
@@ -21,6 +9,7 @@ void SimulatedAnnealing::Init(const double& _accept, const double& _temp, const 
 	Temperature = _temp;
 	Difference = _diff;
 	NM->Init(_range, _send, _detect);
+	//NM->Init((_range*_range -1), _send, _detect);
 }
 
 void SimulatedAnnealing::Init(const double& _accept, const double& _temp, const double& _diff, const int& _range, const int& _send, const int& _detect, const int& _num)
@@ -33,7 +22,6 @@ void SimulatedAnnealing::Init(const double& _accept, const double& _temp, const 
 
 void SimulatedAnnealing::Start()
 {
-	ReadFile();
 	Simulating();
 	Finish();
 }
@@ -68,28 +56,3 @@ bool SimulatedAnnealing::ChkAbletoChange(Node* _node, const int& _dis, const int
 		return true;
 	}return false;
 }
-
-void SimulatedAnnealing::WriteFile(int _cnt)
-{
-	ofstream ofs("SensLoc.txt", ios_base::out);
-	for (int i = 0; i < _cnt; ++i) {
-		int x = GetRand(99);
-		int y = GetRand(99);
-		ofs << x << " " << y << endl;
-	}
-	ofs.close();
-}
-
-void SimulatedAnnealing::ReadFile()
-{
-	ifstream ifs("SensLoc.txt", ios_base::in);
-	string ch;
-	while (!ifs.eof())
-	{
-		ifs >> ch; int x = stoi(ch);
-		ifs >> ch; int y = stoi(ch);
-		Board[y][x] = -1;
-	}
-	ifs.close();
-}
-

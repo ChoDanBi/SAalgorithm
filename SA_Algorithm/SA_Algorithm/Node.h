@@ -4,11 +4,19 @@
 class Node
 {
 protected:
+	vector<pair<Vector2, int>> Relay;
+	pair<int, int> Fitness; //Repeater count, Hop
+
+	int Send;
+	int Detect;
+
 	int Num;
 	vector<int> Binary;	//¡Øreverse order
-	vector<V2> Vec;
-	//Repeater count, Hop
-	pair<int, int> Fitness;
+
+public:	//Init
+	void Init();
+	void Init(vector<pair<Vector2, int>> _relay);
+
 
 public:	//Set
 	void SetNum(int _num);
@@ -31,7 +39,11 @@ public:	//ect
 	void Show();
 
 public:	//init
-	Node() : Num(0), Fitness(), Binary(NULL) {};
+
+	Node(){ Init(); }
+	Node(vector<pair<Vector2, int>> _relay) { Init(_relay); }
+
+	//Node() : Num(0), Fitness(), Binary(NULL) {};
 
 	Node(int _num) { SetNum(_num); }
 	Node(int _num, int _size) { SetNum(_num, _size); }

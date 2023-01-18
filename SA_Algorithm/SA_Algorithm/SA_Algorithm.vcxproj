@@ -142,6 +142,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="NodeFactory.cpp" />
+    <ClCompile Include="NodeFunction.cpp" />
     <ClCompile Include="NodeManager.cpp" />
     <ClCompile Include="SimulatedAnnealing.cpp" />
   </ItemGroup>
@@ -150,7 +151,9 @@
     <ClInclude Include="Define.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeFactory.h" />
+    <ClInclude Include="NodeFunction.h" />
     <ClInclude Include="NodeManager.h" />
+    <ClInclude Include="SensorFile.h" />
     <ClInclude Include="SimulatedAnnealing.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
