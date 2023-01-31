@@ -1,7 +1,7 @@
 #pragma once
 #include "header.h"
 
-#define LINKLIST vector<pair<Vec2, set<Vec2*>>>
+#define LINKLIST vector<pair<Point, set<Point*>>>
 
 typedef int Repeater;
 typedef int Hop;
@@ -16,9 +16,11 @@ private:
 
 public:
 	Node();
-	Node(int _range);
 
 private:
+	void SerachSensor(Point* _point, int* _detect);
+	Point MakeRepeater();
+	
 
 public:	//Set
 	int GetRepeater() { return Fitness.first; }
@@ -28,7 +30,10 @@ public:	//Set
 public: //Ect
 	void Show();
 
+private:
+	void Release();
+
 public:
-	~Node() {}
+	~Node() { Release(); }
 };
 
