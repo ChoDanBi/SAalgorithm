@@ -5,27 +5,21 @@
 
 void Node::Init()
 {
-	FUNC* f = new FUNC;
-	f->SetRelay(Relay);
-
-
-
-
-
-	delete f; f = nullptr;
-}
-
-void Node::Init(vector<pair<Vector2, int>> _relay)
-{
-	Relay = _relay;
-	FUNC* f = new FUNC(_relay);
-
+	FUNC* f = new FUNC(&Relay, &Matching);
+	
 
 
 
 
 	delete f; f = nullptr;
 }
+
+
+
+
+
+
+
 
 void Node::SetNum(int _num)
 {
@@ -46,8 +40,7 @@ void Node::SetNum(int _num, int _size)
 void Node::SetBinary(vector<int> _binary)
 {
 	Num = 0;
-	int size = _binary.size();
-	for (int i = 0; i < size; ++i)
+	for (int i = 0; i < _binary.size(); ++i)
 		Num += _binary[i] * (int)pow(2, i);
 	Fitness.first = func(Num);
 	Binary = _binary;
@@ -68,9 +61,17 @@ void Node::Show()
 	cout << "Num: " << Num
 		<< ", Fit: " << Fitness.first
 		<< ", Binary: ";
-	for (int i = (Binary.size() - 1); i >= 0; --i)
+	for (int i = ((int)Binary.size() - 1); i >= 0; --i)
 		cout << Binary[i];
 
 	cout << "\n";
+}
+
+void Node::Release()
+{
+	while (!Relay.empty()) {
+		DEL(Relay.back());
+		Relay.pop_back();
+	}
 }
 

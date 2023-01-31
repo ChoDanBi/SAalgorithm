@@ -23,8 +23,8 @@ private:
 	int Detect;
 
 	vector<vector<int>> Board;
-	map<int, Vector2> Sensor;
-	Vector2 Base[2];
+	vector<Vec2*> Sensor;
+	Vector2* Base[2];
 
 	Node* currentNode;
 
@@ -48,10 +48,10 @@ public:	//Get&Set
 	vector<vector<int>>* GetBoard() { return &Board; }
 	void SetBorad();
 
-	map<int, Vector2>* GetSensor() { return &Sensor; }
+	vector<Vec2*>* GetSensor() { return &Sensor; }
 
-	Vector2* GetBase0() { return &Base[0]; }
-	Vector2* GetBase1() { return &Base[1]; }
+	Vec2* GetBase0() { return Base[0]; }
+	Vec2* GetBase1() { return Base[1]; }
 
 public:	//Node
 	void SetCurNode(Node* _node);
@@ -72,11 +72,11 @@ public:	//Ect
 	void ShowBoard();
 
 public:	//Release
-	void DelCurNode() { SafeDelet(currentNode); }
+	void DelCurNode() { currentNode->~Node(); SafeDelet(currentNode); }
 	void Release();
 
 private:
-	NodeManager() : Range(0), Size(0), Send(0), Detect(0), currentNode(nullptr) {};
+	NodeManager() {};
 public:
 	~NodeManager() { Release(); }
 };

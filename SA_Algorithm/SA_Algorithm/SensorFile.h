@@ -33,11 +33,11 @@ public:	//File
 	}
 
 public:	//Get
-	static vector<Vector2> GetSensor() {
+	static vector<Vec2> GetSensor() {
 		ifstream ifs("Sensor.txt", ios_base::in);
 		
-		vector<Vector2> vec;
-		int x, y; string ch;
+		vector<Vec2> vec;
+		int y, x; string ch;
 
 		while (!ifs.eof())
 		{
@@ -45,7 +45,7 @@ public:	//Get
 			x = stoi(ch);
 			ifs >> ch;
 			y = stoi(ch);
-			vec.push_back(Vector2(x, y));
+			vec.push_back(Vec2(y, x));
 		}
 		ifs.close();
 

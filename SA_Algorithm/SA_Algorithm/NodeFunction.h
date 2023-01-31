@@ -1,26 +1,23 @@
 #pragma once
-#include "Node.h"
+#include "header.h"
 
 class NodeFunction
 {
-private:
-	vector<pair<Vector2, int>>* Relay;
-	
 public:	//Init
-	void Init();
-	void Init(vector<pair<Vector2, int>>* _relay);
+	void Init(vector<Vec2*>* Relay, vector<int, int>* Matching);
 
-	void SetRelay(vector<pair<Vector2, int>> _relay) { Relay = &_relay; }
-
-public:	//link
+public:	//functions
 	bool Linked(Vector2 _vec, int _num);
 
-public:
-	NodeFunction() { Init(); }
-	NodeFunction(vector<pair<Vector2, int>> _relay) { Init(&_relay); }
+
+
 private:
-	void Release() { Relay = nullptr;}
+	void Release() { }
+
 public:
+	//초기해 만들기
+	NodeFunction(vector<Vec2*>* Relay, vector<int, int>* Matching) { Init(Relay, Matching); }
+
 	~NodeFunction() { Release(); }
 };
 

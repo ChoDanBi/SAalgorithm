@@ -50,7 +50,7 @@ public:	//Release
 	void Release() { NM->~NodeManager(); DEL(Instance); }
 
 private:
-	SimulatedAnnealing(): AcceptanceProbabilty(0.0), Temperature(0.0), Difference(0.0) {};
+	SimulatedAnnealing() {};
 public:
 	~SimulatedAnnealing() { Release(); }
 };

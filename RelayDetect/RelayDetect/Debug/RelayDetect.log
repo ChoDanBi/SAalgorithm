@@ -1,0 +1,8 @@
+﻿  BoardManager.cpp
+  main.cpp
+C:\Users\coldo\source\repos\ChoDanBi\SAalgorithm\RelayDetect\RelayDetect\main.cpp(42,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\coldo\source\repos\ChoDanBi\SAalgorithm\RelayDetect\RelayDetect\main.cpp(50,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\coldo\source\repos\ChoDanBi\SAalgorithm\RelayDetect\RelayDetect\main.cpp(51,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  Node.cpp
+  코드를 생성하고 있습니다...
+  RelayDetect.vcxproj -> C:\Users\coldo\source\repos\ChoDanBi\SAalgorithm\RelayDetect\Debug\RelayDetect.exe

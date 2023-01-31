@@ -3,8 +3,9 @@
 
 class Node
 {
-protected:
-	vector<pair<Vector2, int>> Relay;
+private:
+	vector<Vec2*> Relay;
+	vector<int, int> Matching;
 	pair<int, int> Fitness; //Repeater count, Hop
 
 	int Send;
@@ -15,8 +16,6 @@ protected:
 
 public:	//Init
 	void Init();
-	void Init(vector<pair<Vector2, int>> _relay);
-
 
 public:	//Set
 	void SetNum(int _num);
@@ -40,8 +39,7 @@ public:	//ect
 
 public:	//init
 
-	Node(){ Init(); }
-	Node(vector<pair<Vector2, int>> _relay) { Init(_relay); }
+	Node() { Init(); }
 
 	//Node() : Num(0), Fitness(), Binary(NULL) {};
 
@@ -53,5 +51,9 @@ public:	//init
 
 private: //function
 	int func(int x) { return (80 + (38 * x) - (x * x)); }
+
+public:
+	void Release();
+	~Node() { Release(); }
 };
 
