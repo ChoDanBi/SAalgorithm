@@ -19,18 +19,35 @@ void Node::SerachSensor(Point* _point, int* _detect)
 
 	int mid = *SMINS->GetRange() / 2;
 	int start = mid, end = mid;
+
 	while (true) {
+		//y[0] <= (*SENSOR)[mid]->y <= y[1] 조건 이진 탐색: start index
+
 		//범위 안에 존재
 		if (y[0] <= (*SENSOR)[mid]->y && (*SENSOR)[mid]->y <= y[1])
 		{
 			start = mid;
 			mid--;
+			if(mid <= 0)
+			{
+
+				break;
+			}
+			if ((*SENSOR)[mid]->y < y[0] && (*SENSOR)[start]->y >= y[0]) break;
 			continue;
 		}
 
 		//탐색 값이 크다면
 		if (y[0] > (*SENSOR)[mid]->y)
+		{
 			mid -= (mid / 2);
+			continue;
+		}
+
+		if ((*SENSOR)[mid]->y > y[1])
+		{
+			mid += (mid / 2);
+		}
 	}
 }
 
