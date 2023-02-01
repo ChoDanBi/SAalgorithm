@@ -44,9 +44,11 @@ void SensorManager::ShowBoard()
 	if (Board.empty()) return;
 	for (int i = 0; i < (int)Board.size(); ++i)
 	{
+		cout << i << ": ";
 		for (int j = 0; j < (int)Board[0].size(); ++j)
 		{
-			if (Board[i][j] != 0) cout << "S";
+			if (Board[i][j] == 1) cout << "S";
+			else if (Board[i][j] == 2) cout << "R";
 			else cout << " ";
 		}
 		cout << endl;

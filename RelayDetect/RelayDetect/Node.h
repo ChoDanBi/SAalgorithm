@@ -1,7 +1,8 @@
 #pragma once
 #include "header.h"
+#include "SensorManager.h"
 
-#define LINKLIST vector<pair<Point, set<Point*>>>
+#define LINKLIST map<Point, set<Point*>>
 
 typedef int Repeater;
 typedef int Hop;
@@ -18,9 +19,8 @@ public:
 	Node();
 
 private:
-	void SerachSensor(Point* _point, int* _detect);
-	Point MakeRepeater();
-	
+	//중계기 범위 안 센서들 감지
+	void SerachNearSensor(Point* _point, int* _detect, set<Point*>* _ispoint);
 
 public:	//Set
 	int GetRepeater() { return Fitness.first; }
@@ -28,10 +28,10 @@ public:	//Set
 	LINKLIST GetLinkList() { return LinkList; }
 
 public: //Ect
-	void Show();
+	void Show() { cout << "Make Complete\n"; }
 
 private:
-	void Release();
+	void Release() { LinkList.clear();}
 
 public:
 	~Node() { Release(); }

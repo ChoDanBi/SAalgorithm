@@ -19,6 +19,9 @@
     <Filter Include="소스 파일\SensorManager">
       <UniqueIdentifier>{818ff6d2-8514-4a58-bd3e-870737854dd4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Factory">
+      <UniqueIdentifier>{c0534eff-f060-4ce6-a45b-29b3a7cd0b02}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -43,6 +46,9 @@
     </ClInclude>
     <ClInclude Include="Define.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>소스 파일\Factory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Factory.h" />
     <ClInclude Include="SensorManager.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="Node.h" />
