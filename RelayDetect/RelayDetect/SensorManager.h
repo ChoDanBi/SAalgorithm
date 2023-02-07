@@ -29,20 +29,20 @@ private:
 	void Release();
 
 public:
-	int* GetRange() { return &Range; }
-	int* GetDetect() { return &Detect; }
-	int* GetSend() { return &Send; }
+	int GetRange() { return Range; }
+	int GetDetect() { return Detect; }
+	int GetSend() { return Send; }
 	Point* GetFirstBase() { return Base[0]; }
 	Point* GetSecondBase() { return Base[1]; }
 	vector<vector<int>>* GetBoard() { return &Board; }
-	vector<Point*>* GetSensor() { return &Sensor; }
+	vector<Point*> GetSensor() { return Sensor; }
 
 public:
 	void ShowBoard();
 	void ShowSensor();
 
 private:
-	SensorManager() {}
+	SensorManager(): Base(), Detect(), Range(), Send() {}
 public:
 	~SensorManager() { Release(); }
 };

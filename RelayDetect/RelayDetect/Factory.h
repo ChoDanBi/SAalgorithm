@@ -6,7 +6,7 @@ class Factory {
 public:
 	static Point CreatePoint()
 	{
-		int Range = *SMINS->GetRange() - 1;
+		int Range = SMINS->GetRange() - 1;
 		int y = GetRand(Range);
 		int x = GetRand(Range);
 		return Point(y, x);

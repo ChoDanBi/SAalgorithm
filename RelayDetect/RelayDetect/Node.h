@@ -2,7 +2,7 @@
 #include "header.h"
 #include "SensorManager.h"
 
-#define LINKLIST map<Point, set<Point*>>
+#define LINKLIST map<Point, vector<Point*>, Point_cmp>
 
 typedef int Repeater;
 typedef int Hop;
@@ -20,12 +20,13 @@ public:
 
 private:
 	//중계기 범위 안 센서들 감지
-	void SerachNearSensor(Point* _point, int* _detect, set<Point*>* _ispoint);
+	void SerachNearSensor(Point _point, int _detect, vector<Point*>* _ispoint);
+	vector<int> FindYTwoPoint(Point _point, int _detect);
 
 public:	//Set
 	int GetRepeater() { return Fitness.first; }
 	int GetHop() { return Fitness.second; }
-	LINKLIST GetLinkList() { return LinkList; }
+	LINKLIST* GetLinkList() { return &LinkList; }
 
 public: //Ect
 	void Show() { cout << "Make Complete\n"; }
