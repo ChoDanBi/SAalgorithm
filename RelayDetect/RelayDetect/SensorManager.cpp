@@ -37,6 +37,9 @@ void SensorManager::SetBoard()
 
 	for (int i = 0; i < (int)Sensor.size(); ++i)
 		Board[Sensor[i]->y][Sensor[i]->x] = 1;
+
+	Board[Base[0]->y][Base[0]->x] = 2;
+	Board[Base[1]->y][Base[1]->x] = 2;
 }
 
 void SensorManager::ShowBoard()
@@ -44,12 +47,11 @@ void SensorManager::ShowBoard()
 	if (Board.empty()) return;
 	for (int i = 0; i < (int)Board.size(); ++i)
 	{
-		cout << i << ": ";
 		for (int j = 0; j < (int)Board[0].size(); ++j)
 		{
-			if (Board[i][j] == 1) cout << "S";
-			else if (Board[i][j] == 2) cout << "R";
-			else cout << " ";
+			if (Board[i][j] == 1) cout << " S ";
+			else if (Board[i][j] == 2) cout << " B ";
+			else cout << " * ";
 		}
 		cout << endl;
 	}

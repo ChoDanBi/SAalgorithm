@@ -15,6 +15,8 @@ typedef struct Vector2
 {
 	int y;
 	int x;
+
+	Vector2(): y(), x() {}
 	Vector2(int _y, int _x) : y(_y), x(_x) {}
 
 	bool operator == (const Vector2& p) const { return tie(y, x) == tie(p.y, p.x); }
@@ -36,18 +38,12 @@ static bool cmp(const Point* v1, const Point* v2)
 	return v1->y < v2->y;
 }
 
-
-static int _Y;
-static bool FindY(const Point* _point) { return _Y <= _point->y; }
-
-
 template <typename T>
 inline void SafeDelet(T* _node)
 {
 	if (_node == nullptr) return;
 	delete _node; _node = nullptr;
 }
-
 
 static int GetRand(int _min, int _max)
 {

@@ -9,7 +9,8 @@ int main() {
 	//SMINS->ShowBoard();
 	
 	Node* node = new Node;
-	node->Show();
+	node->ShowSensor();
+	node->ShowRepeater();
 
 
 	return 0;
