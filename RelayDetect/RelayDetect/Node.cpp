@@ -16,9 +16,10 @@ Node::Node()
 		if ((*BOARD)[point.y][point.x] == 1
 			|| LinkList.find((point)) != LinkList.end()) continue;
 
-
 		SerachNearSensor(point, SMINS->GetDetect(), &isPoint);
 	}
+	CmpDisSensor();
+
 }
 
 void Node::SerachNearSensor(Point _point, int _detect, vector<Point*>* _ispoint)
@@ -60,6 +61,16 @@ void Node::SerachNearSensor(Point _point, int _detect, vector<Point*>* _ispoint)
 	if (!s.empty()) LinkList.insert(make_pair(_point, s));
 }
 
+void Node::CmpDisSensor()
+{
+	for (LINKLIST::iterator i = LinkList.begin(); i != LinkList.end(); ++i)
+	{
+
+
+
+
+	}
+}
 
 vector<int> Node::FindYTwoPoint(Point _point, int _detect)
 {
@@ -67,16 +78,22 @@ vector<int> Node::FindYTwoPoint(Point _point, int _detect)
 	int y[2] = { (_point.y - _detect),(_point.y + _detect) };
 
 	//y 기준으로 범위 좁히기
-	_Y = y[0]; int Top =
-		(int)(find_if(SENSOR.begin(), SENSOR.end(),
-			FindY) - SENSOR.begin());
+	int Top = 0;
+	for (; Top < (int)SENSOR.size()-1; ++Top)
+	{
+		if (SENSOR[Top]->y <= y[0] && y[0] <= SENSOR[Top +1]->y) break;
+	}
 
-	_Y = y[1]; int Bottom =
-		(int)(find_if((SENSOR.begin() + Top), SENSOR.end(),
-			FindY) - SENSOR.begin());
+	int Bottom = (int)SENSOR.size() - 1;
+	for (; Bottom > 1; --Bottom)
+	{
+		if (SENSOR[Bottom - 1]->y <= y[0] && y[0] <= SENSOR[Bottom]->y) break;
+	}
 
-	if (Bottom == (SENSOR.end() - SENSOR.begin()))
-		Bottom = (int)SENSOR.size() - 1;
+	// = (int)(find_if(SENSOR.begin(), SENSOR.end(), FindY) - SENSOR.begin());
+	// = (int)(find_if((SENSOR.begin() + Top), SENSOR.end(), FindY) - SENSOR.begin());
+	//if (Bottom == (SENSOR.end() - SENSOR.begin()))
+	//	Bottom = (int)SENSOR.size() - 1;
 
 	int Left = (_point.x - _detect);
 	int Right = (_point.x + _detect);
@@ -84,6 +101,35 @@ vector<int> Node::FindYTwoPoint(Point _point, int _detect)
 	vector<int> v = { Top,Bottom,Left,Right };
 
 	return v;
+}
+
+void Node::Show()
+{
+	vector<int> v(SMINS->GetSize(),0);
+	vector<vector<int>> Board;
+	for (int i = 0; i < SMINS->GetSize(); ++i) Board.push_back(v);
+
+	int n = 1;
+	for (LINKLIST::iterator i = LinkList.begin(); i != LinkList.end(); ++i)
+	{
+		Board[(*i).first.y][(*i).first.x] = -1;
+
+		for (int j = 0; j < (int)(*i).second.size(); ++j)
+			Board[(*i).second[j]->y][(*i).second[j]->x] = n;
+
+		n++;
+	}
+
+	for (int i = 0; i < SMINS->GetSize(); ++i)
+	{
+		for (int j = 0; j < SMINS->GetSize(); ++j)
+		{
+			if (Board[i][j] == 0) cout << " ";
+			else if (Board[i][j] == -1) cout << "R";
+			else cout << Board[i][j];
+		}
+		cout << endl;
+	}
 }
 
 

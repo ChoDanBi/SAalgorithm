@@ -12,7 +12,7 @@ public:
 	}
 
 private:
-	int Range;
+	int Size;
 	int Detect;
 	int Send;
 
@@ -21,7 +21,7 @@ private:
 	vector<Point*> Sensor;
 
 public:
-	void Init(int _range, int _detect, int _send);
+	void Init(int _size, int _detect, int _send);
 
 private:
 	void SetSensor();
@@ -29,7 +29,7 @@ private:
 	void Release();
 
 public:
-	int GetRange() { return Range; }
+	int GetSize() { return Size; }
 	int GetDetect() { return Detect; }
 	int GetSend() { return Send; }
 	Point* GetFirstBase() { return Base[0]; }
@@ -42,7 +42,7 @@ public:
 	void ShowSensor();
 
 private:
-	SensorManager(): Base(), Detect(), Range(), Send() {}
+	SensorManager(): Base(), Detect(), Size(), Send() {}
 public:
 	~SensorManager() { Release(); }
 };

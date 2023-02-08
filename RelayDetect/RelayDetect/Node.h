@@ -21,7 +21,9 @@ public:
 private:
 	//중계기 범위 안 센서들 감지
 	void SerachNearSensor(Point _point, int _detect, vector<Point*>* _ispoint);
+	void CmpDisSensor();
 	vector<int> FindYTwoPoint(Point _point, int _detect);
+
 
 public:	//Set
 	int GetRepeater() { return Fitness.first; }
@@ -29,7 +31,7 @@ public:	//Set
 	LINKLIST* GetLinkList() { return &LinkList; }
 
 public: //Ect
-	void Show() { cout << "Make Complete\n"; }
+	void Show();
 
 private:
 	void Release() { LinkList.clear();}

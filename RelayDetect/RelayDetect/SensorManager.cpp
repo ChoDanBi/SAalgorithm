@@ -2,14 +2,14 @@
 
 SensorManager* SensorManager::Instance = NULL;
 
-void SensorManager::Init(int _range, int _detect, int _send)
+void SensorManager::Init(int _size, int _detect, int _send)
 {
-	Range = _range;
+	Size = _size;
 	Detect = _detect;
 	Send = _send;
 
-	Base[0] = new Point(0, Range/2);
-	Base[1] = new Point(Range - 1, (Range / 2 - 1));
+	Base[0] = new Point(0, Size /2);
+	Base[1] = new Point(Size - 1, (Size / 2 - 1));
 
 	SetSensor();
 	SetBoard();
@@ -32,8 +32,8 @@ void SensorManager::SetSensor()
 
 void SensorManager::SetBoard()
 {
-	vector<int> v(Range, 0);
-	for (int i = 0; i < Range; ++i) Board.push_back(v);
+	vector<int> v(Size, 0);
+	for (int i = 0; i < Size; ++i) Board.push_back(v);
 
 	for (int i = 0; i < (int)Sensor.size(); ++i)
 		Board[Sensor[i]->y][Sensor[i]->x] = 1;
