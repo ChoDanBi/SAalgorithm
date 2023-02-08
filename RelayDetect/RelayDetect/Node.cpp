@@ -8,7 +8,7 @@ Node::Node()
 
 	vector<Point*> isPoint;
 
-	while (isPoint.size() != SENSOR.size())
+	while (isPoint.size() != (*SENSOR).size())
 	{
 		Point point = FT::CreatePoint();
 
@@ -35,7 +35,7 @@ void Node::SerachNearSensor(Point _point, int _detect, vector<Point*>* _ispoint)
 	double dis;
 	vector<Point*> s;
 
-	for (vector<Point*>::iterator i = SENSOR.begin(); i != SENSOR.end(); ++i)
+	for (vector<Point*>::iterator i = (*SENSOR).begin(); i != (*SENSOR).end(); ++i)
 	{
 		if (!(Top <= (*i)->y && (*i)->y <= Bottom && Left <= (*i)->x && (*i)->x <= Right)) continue;
 
@@ -107,15 +107,15 @@ vector<int> Node::FindRange(Point _point, int _detect)
 
 	//y 기준으로 범위 좁히기
 	int Top = 0;
-	for (; Top < (int)SENSOR.size(); ++Top)
+	for (; Top < (int)(*SENSOR).size(); ++Top)
 	{
-		if (SENSOR[Top]->y <= y[0]) break;
+		if ((*SENSOR)[Top]->y <= y[0]) break;
 	}
 
-	int Bottom = (int)SENSOR.size() - 1;
+	int Bottom = (int)(*SENSOR).size() - 1;
 	for (; Bottom > -1; --Bottom)
 	{
-		if (SENSOR[Bottom]->y <= y[1]) break;
+		if ((*SENSOR)[Bottom]->y <= y[1]) break;
 	}
 
 	int Left = (_point.x - _detect);

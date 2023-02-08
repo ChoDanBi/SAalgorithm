@@ -35,7 +35,7 @@ public:
 	Point* GetFirstBase() { return Base[0]; }
 	Point* GetSecondBase() { return Base[1]; }
 	vector<vector<int>>* GetBoard() { return &Board; }
-	vector<Point*> GetSensor() { return Sensor; }
+	vector<Point*>* GetSensor() { return &Sensor; }
 
 public:
 	void ShowBoard();
